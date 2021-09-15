@@ -35,10 +35,8 @@ class BinaryConnection extends BinarySettings
             // database name
             ArangoConnectionOptions::OPTION_DATABASE => $this->db_name,
             // server endpoint to connect to
-            ArangoConnectionOptions::OPTION_ENDPOINT => $this->db_server,  // Dirección para CCO directa 'tcp://186.155.4.70:39',
+            ArangoConnectionOptions::OPTION_ENDPOINT => $this->db_server, 
 
-            //ArangoConnectionOptions::OPTION_HOST => 'https://arangodb.cco.gov.co',
-            //ArangoConnectionOptions::OPTION_PORT => 39,
             // authorization type to use (currently supported: 'Basic')
             ArangoConnectionOptions::OPTION_AUTH_TYPE => 'Basic',
             // user for basic authorization
@@ -62,7 +60,7 @@ class BinaryConnection extends BinarySettings
         //ArangoException::enableLogging();
 
         $this->connection = new ArangoConnection($this->connectionOptions);
-        //$this->messages = SysMessages::start();
+        
 
     }
     private static function layer($layer)
