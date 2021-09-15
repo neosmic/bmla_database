@@ -35,7 +35,7 @@ class BinaryConnection extends BinarySettings
             // database name
             ArangoConnectionOptions::OPTION_DATABASE => $this->db_name,
             // server endpoint to connect to
-            ArangoConnectionOptions::OPTION_ENDPOINT => $this->db_server, 
+            ArangoConnectionOptions::OPTION_ENDPOINT => $this->db_server,
             // authorization type to use (currently supported: 'Basic')
             ArangoConnectionOptions::OPTION_AUTH_TYPE => 'Basic',
             // user for basic authorization
@@ -59,13 +59,12 @@ class BinaryConnection extends BinarySettings
         //ArangoException::enableLogging();
 
         $this->connection = new ArangoConnection($this->connectionOptions);
-
     }
     private static function layer($layer)
     {
-        if ($layer == "node") {
+        if ($layer == "node" || $layer == "nodes") {
             $collection = SELF::$nodesCollection;
-        } elseif ($layer == "edge") {
+        } elseif ($layer == "edge" || $layer == "edges") {
             $collection = SELF::$edgesCollection;
         } else {
             return dd(" $layer layer doesn't exist ");
